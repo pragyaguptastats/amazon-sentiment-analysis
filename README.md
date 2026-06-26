@@ -2,19 +2,19 @@
 
 ## Project Overview
 
-This project focuses on analyzing customer reviews from Amazon products using **Natural Language Processing (NLP)** and **Machine Learning** techniques. The objective is to classify customer reviews into **Positive**, **Neutral**, and **Negative** sentiments based on the review text.
+This project performs **sentiment analysis** on Amazon product reviews using **Natural Language Processing (NLP)** and **Machine Learning**. Customer reviews are classified into **Positive**, **Neutral**, or **Negative** sentiments based on their textual content.
 
-The project demonstrates the complete machine learning workflow, including data preprocessing, feature engineering, model training, evaluation, visualization, and sentiment prediction.
+The project demonstrates an end-to-end machine learning workflow, including data preprocessing, feature engineering, model training, evaluation, visualization, and interactive sentiment prediction.
 
 ---
 
 ## Objectives
 
-* Analyze customer reviews from an Amazon reviews dataset.
-* Convert product ratings into sentiment labels.
-* Build a machine learning model to classify review sentiments.
-* Evaluate the model using standard classification metrics.
-* Visualize customer sentiment and review patterns.
+* Analyze customer reviews from an Amazon product reviews dataset.
+* Convert numerical ratings into sentiment labels.
+* Build and evaluate a machine learning model for sentiment classification.
+* Visualize customer review patterns.
+* Predict the sentiment of new user-provided reviews.
 
 ---
 
@@ -24,10 +24,12 @@ The project uses an Amazon Product Reviews dataset containing customer reviews a
 
 ### Features Used
 
-* **reviews.text** – Customer review text
-* **reviews.rating** – Product rating (1–5)
+| Feature        | Description          |
+| -------------- | -------------------- |
+| reviews.text   | Customer review text |
+| reviews.rating | Product rating (1–5) |
 
-### Sentiment Labeling
+### Sentiment Labels
 
 | Rating | Sentiment |
 | ------ | --------- |
@@ -51,34 +53,22 @@ The project uses an Amazon Product Reviews dataset containing customer reviews a
 
 ## Machine Learning Workflow
 
-1. Load the dataset
-2. Data cleaning and preprocessing
-3. Handle missing values
-4. Generate sentiment labels from ratings
-5. Split data into training and testing sets
-6. Convert text into numerical features using **TF-IDF Vectorization**
-7. Train a **Logistic Regression** classifier
-8. Evaluate model performance
-9. Predict sentiment for new reviews
-10. Generate visualizations
-
----
-
-## Exploratory Data Analysis (EDA)
-
-The project includes several visualizations to understand customer feedback:
-
-* Sentiment Distribution
-* Rating Distribution
-* Confusion Matrix
-* Positive Review Word Cloud
-* Most Common Words in Negative Reviews
+1. Data Loading
+2. Data Cleaning
+3. Missing Value Handling
+4. Sentiment Label Generation
+5. Train-Test Split
+6. TF-IDF Feature Extraction
+7. Logistic Regression Model Training
+8. Model Evaluation
+9. Interactive Sentiment Prediction
+10. Visualization Generation
 
 ---
 
 ## Model
 
-**Algorithm Used**
+**Algorithm**
 
 * Logistic Regression
 
@@ -90,49 +80,86 @@ The project includes several visualizations to understand customer feedback:
 
 ## Model Evaluation
 
-The model is evaluated using:
+Evaluation metrics include:
 
-* Accuracy Score
+* Accuracy
 * Precision
 * Recall
 * F1-Score
 * Classification Report
 * Confusion Matrix
 
+**Overall Accuracy:** **~94%**
+
+> **Note:** The dataset is imbalanced, resulting in stronger performance for positive reviews than for neutral and negative reviews.
+
 ---
 
 ## Sample Prediction
 
-**Input Review**
+**Input**
 
-```
+```text
 This product is amazing and works perfectly.
 ```
 
-**Predicted Output**
+**Output**
 
-```
+```text
 Positive
 ```
 
 ---
 
+# Project Visualizations
+
+## Sentiment Distribution
+
+![Sentiment Distribution](images/sentiment_distribution.png)
+
+## Rating Distribution
+
+![Rating Distribution](images/rating_distribution.png)
+
+## Confusion Matrix
+
+![Confusion Matrix](images/confusion_matrix.png)
+
+## Positive Review Word Cloud
+
+![Positive Word Cloud](images/positive_wordcloud.png)
+
+## Most Common Words in Negative Reviews
+
+![Negative Keywords](images/negative_keywords.png)
+
+---
+
 ## Project Structure
 
-```
+```text
 Amazon-Review-Sentiment-Analysis/
 │
-├── data.py
-├── amazon reviews.csv
-├── sentiment_model.pkl
-├── requirements.txt
-├── README.md
+├── data/
+│   └── amazon_reviews.csv
 │
-├── sentiment_distribution.png
-├── rating_distribution.png
-├── confusion_matrix.png
-├── positive_wordcloud.png
-└── negative_keywords.png
+├── images/
+│   ├── sentiment_distribution.png
+│   ├── rating_distribution.png
+│   ├── confusion_matrix.png
+│   ├── positive_wordcloud.png
+│   └── negative_keywords.png
+│
+├── models/
+│   └── sentiment_model.pkl
+│
+├── src/
+│   └── train_model.py
+│
+├── README.md
+├── requirements.txt
+├── LICENSE
+└── .gitignore
 ```
 
 ---
@@ -142,16 +169,16 @@ Amazon-Review-Sentiment-Analysis/
 Clone the repository:
 
 ```bash
-git clone https://github.com/pragyaguptastats/amazon-review-sentiment-analysis.git
+git clone https://github.com/pragyaguptastats/amazon-sentiment-analysis.git
 ```
 
-Navigate to the project directory:
+Move into the project directory:
 
 ```bash
-cd amazon-review-sentiment-analysis
+cd amazon-sentiment-analysis
 ```
 
-Install the required libraries:
+Install dependencies:
 
 ```bash
 pip install -r requirements.txt
@@ -160,18 +187,18 @@ pip install -r requirements.txt
 Run the project:
 
 ```bash
-python data.py
+python src/train_model.py
 ```
 
 ---
 
 ## Future Improvements
 
-* Compare multiple machine learning algorithms such as Naïve Bayes, Support Vector Machine, and Random Forest.
-* Deploy the model using Streamlit for an interactive web interface.
-* Integrate real-time customer review retrieval from online sources.
-* Improve performance using transformer-based NLP models such as BERT.
-* Develop an interactive dashboard for sentiment analytics.
+* Compare additional machine learning algorithms such as Naïve Bayes, Support Vector Machine, and Random Forest.
+* Deploy the model using Streamlit.
+* Integrate real-time review retrieval.
+* Explore transformer-based models such as BERT.
+* Build an interactive sentiment analytics dashboard.
 
 ---
 
@@ -193,6 +220,7 @@ python data.py
 
 **Pragya Gupta**
 
-M.Sc. Statistics | University of Delhi
+M.Sc. Statistics, University of Delhi
 
-Interested in Data Analytics, Machine Learning, Statistical Modeling, and Business Intelligence.
+Interested in Data Analytics, Machine Learning, Statistical Modeling, and Business Analytics.
+
