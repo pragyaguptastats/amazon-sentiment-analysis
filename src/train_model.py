@@ -1,6 +1,6 @@
 import pandas as pd
 
-df = pd.read_csv("amazon reviews.csv", low_memory=False)
+df = pd.read_csv("data/amazon_reviews.csv", low_memory=False)
 
 # Keep required columns
 df = df[['reviews.text', 'reviews.rating']]
@@ -53,6 +53,11 @@ review = "This product is amazing and works perfectly"
 prediction = model.predict([review])
 
 print("Sentiment:", prediction[0])
+import joblib
+# Save the trained model
+joblib.dump(model, "models/sentiment_model.pkl")
+
+print("Model saved successfully!")
 
 import matplotlib.pyplot as plt
 
@@ -63,7 +68,8 @@ df['sentiment'].value_counts().plot(kind='bar')
 plt.title('Sentiment Distribution')
 plt.xlabel('Sentiment')
 plt.ylabel('Number of Reviews')
-
+plt.tight_layout()
+plt.savefig("images/sentiment_distribution.png")
 plt.show()
 
 plt.figure(figsize=(6,4))
@@ -154,3 +160,4 @@ while True:
     print("\nPredicted Sentiment:", prediction[0].upper())
 
 print("\nThank you for using the Sentiment Analyzer!")
+
